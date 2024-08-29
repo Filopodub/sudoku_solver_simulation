@@ -1,4 +1,8 @@
-# Define a sample 9x9 Sudoku grid
+from motor import Motor
+from pen import Pen
+from sudoku import Sudoku
+
+# Define a sample 9x9 Sudoku grid with some predefined numbers
 sudoku_grid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
@@ -11,30 +15,23 @@ sudoku_grid = [
     [0, 0, 0, 0, 8, 0, 0, 7, 9]
 ]
 
-              
-
-from motor import Motor
-from pen import Pen
-from sudoku import Sudoku
-
-# Initialize motors
+# Initialize the motors for the x and y axes
 motor1 = Motor()
 motor2 = Motor()
 
-# Create the Pen with the predefined Sudoku grid
+# Create the Pen object with the predefined Sudoku grid
 pen = Pen(motor1, motor2, sudoku_grid)
 
-# Initialize an empty Sudoku object
+# Initialize an empty Sudoku object to hold the scanned grid
 sudoku = Sudoku()
 
-# Check if the pen is in the start position
+# Check if the pen is in the start position (1, 1)
 if pen.start_position():
-    print("Scan is ready")
-    pen.get_position()
+    print("Scan is ready")  # Notify that the scan is ready to start
+    pen.get_position()  # Display the current position of the pen
 
-# Scan the Sudoku grid
+# Start scanning the Sudoku grid
 pen.scan_sudoku(sudoku)
 
-# Display the scanned Sudoku grid
+# Display the scanned Sudoku grid with borders
 sudoku.display()
-
