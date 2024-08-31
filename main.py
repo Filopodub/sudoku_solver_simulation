@@ -33,5 +33,13 @@ if pen.start_position():
 # Start scanning the Sudoku grid
 pen.scan_sudoku(sudoku)
 
-# Display the scanned Sudoku grid with borders
+# Display the scanned Sudoku grid
+print("Original Sudoku grid:")
 sudoku.display()
+
+# Solve the Sudoku and display the solution
+solved_grid = sudoku.solve()
+print("\nSolved Sudoku grid:")
+sudoku.display(solved_grid)
+
+
